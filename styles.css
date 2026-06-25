@@ -1,0 +1,411 @@
+/* ==========================================================================
+   VARIABLES MAESTRAS (Modo Oscuro Tech)
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #3b82f6;       /* Azul eléctrico */
+  --primary-hover: #1d4ed8;       /* Azul oscuro (hover) */
+  --secondary-color: #10b981;     /* Verde neón (etiquetas y detalles) */
+  
+  --dark-bg: #0b0f19;             /* Fondo ultra oscuro */
+  --card-bg: #111827;             /* Fondo de tarjetas */
+  
+  --text-main: #f3f4f6;           /* Blanco/gris texto principal */
+  --text-muted: #9ca3af;          /* Gris texto secundario */
+  --white: #ffffff;
+  
+  --font-main: 'Plus Jakarta Sans', sans-serif;
+  --max-width: 1100px;
+  --border-radius: 12px;
+  --transition: all 0.3s ease;
+}
+
+/* ==========================================================================
+   RESETEO Y ESTILOS GLOBALES
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { 
+  scroll-behavior: smooth; 
+  /* MUY IMPORTANTE: Evita que el menú fijo tape los títulos al hacer clic en los enlaces */
+  scroll-padding-top: 90px; 
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: var(--text-main);
+  font-family: var(--font-main);
+  line-height: 1.6;
+}
+
+a { text-decoration: none; transition: var(--transition); }
+ul { list-style: none; }
+
+h1, h2, h3 {
+  color: var(--white);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 { font-size: 3rem; margin-bottom: 20px; }
+h2 { font-size: 2.5rem; margin-bottom: 20px; }
+p { color: var(--text-muted); margin-bottom: 20px; font-size: 1.1rem; }
+
+.text-center { text-align: center; }
+
+/* ==========================================================================
+   ESTRUCTURA (Contenedores y Grids)
+   ========================================================================== */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.small-container { max-width: 700px; }
+
+.grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.section { padding: 100px 0; }
+.alt-bg { background-color: var(--card-bg); }
+
+/* ==========================================================================
+   BOTONES Y ETIQUETAS
+   ========================================================================== */
+.subtitle-tech {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--secondary-color);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.btn-primary, .btn-secondary, .btn-nav {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.btn-primary { background: var(--primary-color); color: var(--white); border: none; }
+.btn-primary:hover { background: var(--primary-hover); transform: translateY(-2px); }
+
+.btn-secondary { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.2); }
+.btn-secondary:hover { border-color: var(--white); background: rgba(255,255,255,0.05); }
+
+.full-width { width: 100%; }
+
+/* ==========================================================================
+   BARRA DE NAVEGACIÓN
+   ========================================================================== */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: rgba(11, 15, 25, 0.85);
+  backdrop-filter: blur(12px); /* Efecto cristal */
+  z-index: 1000;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.nav-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo { font-size: 1.5rem; font-weight: 700; color: var(--white); }
+.logo .dot { color: var(--primary-color); }
+
+.nav-links { display: flex; gap: 30px; align-items: center; }
+.nav-links a { color: var(--text-main); font-weight: 500; }
+.nav-links a:hover { color: var(--primary-color); }
+.btn-nav { background: var(--primary-color); color: var(--white); padding: 10px 20px; border-radius: 6px; }
+
+/* ==========================================================================
+   HERO SECTION (Cabecera)
+   ========================================================================== */
+.hero-section {
+  padding: 180px 0 100px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-buttons { display: flex; gap: 15px; margin-top: 30px; }
+
+/* Animación de código estilo tech */
+.tech-morph-shape {
+  background: var(--card-bg);
+  border: 1px solid rgba(255,255,255,0.05);
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.tech-morph-shape pre {
+  color: var(--secondary-color);
+  font-family: monospace;
+  font-size: 1.1rem;
+  white-space: pre-wrap;
+}
+
+/* ==========================================================================
+   SERVICIOS
+   ========================================================================== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
+.service-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  padding: 40px 30px;
+  text-align: left;
+  transition: var(--transition);
+}
+
+.service-card:hover { transform: translateY(-10px); border-color: var(--primary-color); }
+.service-icon { font-size: 3rem; margin-bottom: 20px; }
+
+.cta-bundle {
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  padding: 30px;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.cta-bundle p { margin: 0; color: var(--white); }
+
+/* ==========================================================================
+   PORTAFOLIO
+   ========================================================================== */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.portfolio-card {
+  background: var(--dark-bg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.portfolio-card:hover { transform: translateY(-5px); border-color: var(--primary-color); }
+
+.portfolio-img-placeholder {
+  background: #1f2937;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-weight: bold;
+}
+
+.portfolio-info { padding: 30px; }
+.tags { display: flex; gap: 8px; margin-bottom: 15px; }
+.tag {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--secondary-color);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.project-link { color: var(--primary-color); font-weight: 600; font-size: 15px; }
+.project-link:hover { color: var(--primary-hover); text-decoration: underline; }
+
+/* ==========================================================================
+   SOBRE MÍ
+   ========================================================================== */
+.nosotros-visual-box { display: flex; flex-direction: column; gap: 20px; justify-content: center; }
+
+.stat-box {
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255,255,255,0.05);
+  text-align: center;
+}
+
+.stat-box strong { display: block; font-size: 3.5rem; color: var(--primary-color); margin-bottom: 5px; line-height: 1; }
+.stat-box span { color: var(--white); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 14px; }
+
+/* ==========================================================================
+   FORMULARIO
+   ========================================================================== */
+.tech-form { margin-top: 40px; text-align: left; }
+.form-group { margin-bottom: 20px; }
+
+.tech-form input, .tech-form textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-main);
+  padding: 16px;
+  border-radius: 8px;
+  font-family: var(--font-main);
+  transition: var(--transition);
+}
+
+.tech-form input:focus, .tech-form textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  background: rgba(255,255,255,0.05);
+}
+
+/* ==========================================================================
+   FOOTER (Pie de página)
+   ========================================================================== */
+.footer {
+  background-color: var(--dark-bg);
+  padding: 60px 0 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer .logo {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.footer-copy {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   WHATSAPP FLOTANTE
+   ========================================================================== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #25D366;
+  color: white;
+  padding: 14px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+.whatsapp-float:hover { transform: scale(1.05); color: white; }
+
+/* ==========================================================================
+   MENÚ HAMBURGUESA
+   ========================================================================== */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 1001;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--white);
+  border-radius: 3px;
+  transition: var(--transition);
+}
+
+/* Animación de la hamburguesa convirtiéndose en 'X' */
+.menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+.menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* ==========================================================================
+   RESPONSIVE (MÓVILES)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .grid-2col { grid-template-columns: 1fr; gap: 30px; }
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 2rem; }
+  
+  .hero-section { padding-top: 130px; text-align: center; }
+  .hero-buttons { flex-direction: column; }
+  .btn-primary, .btn-secondary { width: 100%; }
+
+  /* Cambios para el menú móvil */
+  .menu-toggle {
+    display: flex; 
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Se coloca justo debajo de la barra */
+    left: -100%; /* Lo escondemos fuera de la pantalla por la izquierda */
+    width: 100%;
+    background: rgba(11, 15, 25, 0.98);
+    backdrop-filter: blur(12px);
+    padding: 30px 0;
+    transition: var(--transition);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .nav-links.active {
+    left: 0; /* Al añadir la clase, el menú entra en pantalla */
+  }
+
+  .nav-links a {
+    font-size: 1.2rem;
+    padding: 15px 0;
+    width: 100%;
+    text-align: center;
+  }
+}
